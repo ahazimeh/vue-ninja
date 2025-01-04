@@ -1,0 +1,25 @@
+computed
+const matchingNames = computed(() => {
+  return names.value.filter....
+})
+
+watch and watchEffect
+
+const stopWatch = watch([name, age], ([newName, newAge], [oldName, oldAge]) => {
+  console.log(`Name changed from ${oldName} to ${newName}`);
+  console.log(`Age changed from ${oldAge} to ${newAge}`);
+});
+
+const stopEffect = watchEffect(() => {
+  console.log('test')
+})
+
+// stop watching
+stopWatch()
+stopEffect()
+
+watchEffect runs once the component mounts initially but watch don't
+
+*** check how often a method is being called when being used in side a template and something changes in the template
+*** check for custom hooks
+

@@ -1,0 +1,23 @@
+v-if
+v-else
+v-show // display none
+v-on:click // @click
+
+<div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+
+<li v-for="book in books">
+  <h3>{{ book.title }}</h3>
+  <p>{{ book.author }}</p>
+</li>
+
+v-bind:href="" // :href
+:class="{ fav: book.isFav }"
+
+
+// filteredBooks depends on books property
+computed: {
+  filteredBooks() {
+    return this.books.filter((book) => book.isFav)
+  }
+}
+

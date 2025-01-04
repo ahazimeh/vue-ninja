@@ -1,0 +1,25 @@
+// job/id
+<router-link :to="{name: 'JobDetails',params:{ id:job.id } }">
+  <h2>{{ job.title }}</h2>
+</router-link>
+
+
+  // props: true so here id can be accessed as prop as well
+  {
+    path: "/jobs/:id",
+    name: "JobDetails",
+    component: JobDetails,
+    props: true,
+  },
+
+  {
+    path: "/all-jobs",
+    redirect: "/jobs",
+  },
+
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
+  },
+

@@ -1,0 +1,2 @@
+const { delay } = defineProps<{ delay: number | null }>();
+

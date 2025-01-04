@@ -1,0 +1,9 @@
+2 way binding
+v-model="password"
+
+const names = ref([]);
+<div>
+  <input type="checkbox" value="shaun" v-model="names" id="shaun" />
+  <label for="names">Shaun</label>
+</div>
+
