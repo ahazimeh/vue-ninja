@@ -1,0 +1,6 @@
+import { useRouter, useRoute } from "vue-router"
+
+const router = useRouter();
+router.go(-1)
+
+const route = useRoute(); // we can see info about the route such as params...
