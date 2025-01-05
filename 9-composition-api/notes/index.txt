@@ -21,5 +21,3 @@ stopEffect()
 watchEffect runs once the component mounts initially but watch don't
 
 *** check how often a method is being called when being used in side a template and something changes in the template
-*** check for custom hooks
-
