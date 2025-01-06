@@ -1,0 +1,77 @@
+<script setup lang="ts">
+const title = ref('My First Vue App');
+const titleReactive = reactive({title:'My First Vue App'});
+const name = ref<HTMLInputElement | null>(null)
+function changeTitle1() {
+  title.value="sdfsdf"; // Always access the value via `.value`
+}
+function changeTitle() {
+  titleReactive.title="sdfsdf"; // Always access the value via `.value`
+}
+
+function handleClick() {
+  console.log(name.value?.value)
+  name.value?.classList.add('active')
+  name.value?.focus()
+}
+</script>
+
+<template>
+  <h1 @click="changeTitle1">{{title}}</h1>
+  <h1 @click="changeTitle">{{titleReactive.title}}</h1>
+  <input type="text" ref="name" />
+  <button @click="handleClick">Click me</button>
+</template>
+
+import global style as in react for it to work
+
+
+send prop
+// child
+import { defineProps } from 'vue';
+
+defineProps({
+  header: {
+    type: String,
+    required: true,
+  },
+});
+
+:header="" // bind it
+
+call function from child to parent
+  child:
+  const emit = defineEmits(["customEvent"]);
+  function triggerEvent(data: string) {
+    emit("customEvent", data);
+  }
+
+  <button @click="triggerEvent('Hello from Child!')">Emit Event</button>
+
+  parent:
+  @custom-event="handleCustomEvent"
+  function handleCustomEvent(message: string) {
+    console.log("Received from child:", message);
+  }
+
+
+// click events modifier
+@click.right // right click
+@click.self will only click if I click on the element and not child component
+
+slots
+<slot>default content</slot>
+
+named slots
+<template v-slot:links>
+  <a href="#">sign up now</a>
+  <a href="#">more info</a>
+</template>
+
+<slot name="links">default content</slot>
+
+teleport:
+replace div with teleport
+<teleport to=".modals"></teleport>
+<div class="modals"></div>
+
